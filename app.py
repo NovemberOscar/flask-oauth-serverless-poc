@@ -78,3 +78,8 @@ def add_new_todo():
 @app.route('/todos/{uid}', methods=['GET'])
 def get_todo(uid):
     return get_app_db().get_item(uid)
+
+
+@app.route('/todos/{uid}', methods=['DELETE'])
+def delete_todo(uid):
+    return get_app_db().delete_item(uid)
