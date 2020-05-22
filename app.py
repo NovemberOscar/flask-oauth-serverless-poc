@@ -73,3 +73,8 @@ def add_new_todo():
         description=body['description'],
         metadata=body.get('metadata')
     )
+
+
+@app.route('/todos/{uid}', methods=['GET'])
+def get_todo(uid):
+    return get_app_db().get_item(uid)
