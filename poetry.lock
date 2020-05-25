@@ -207,6 +207,19 @@ version = "2.20"
 
 [[package]]
 category = "main"
+description = "JSON Web Token implementation in Python"
+name = "pyjwt"
+optional = false
+python-versions = "*"
+version = "1.6.1"
+
+[package.extras]
+crypto = ["cryptography (>=1.4)"]
+flake8 = ["flake8", "flake8-import-order", "pep8-naming"]
+test = ["pytest (>3,<4)", "pytest-cov", "pytest-runner"]
+
+[[package]]
+category = "main"
 description = "A Pythonic Interface to DynamoDB"
 name = "pynamodb"
 optional = false
@@ -315,7 +328,7 @@ version = "0.34.2"
 test = ["pytest (>=3.0.0)", "pytest-cov"]
 
 [metadata]
-content-hash = "fbdbb96ccc2fa734ec4709a101f96912ac06f3265ed3f0c59f1dfa5c527170d6"
+content-hash = "ab4b104292e36134dc300b642e5d45eaa24ddd8156cae5c05835fb124488bad3"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -434,6 +447,10 @@ py = [
 pycparser = [
     {file = "pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"},
     {file = "pycparser-2.20.tar.gz", hash = "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"},
+]
+pyjwt = [
+    {file = "PyJWT-1.6.1-py2.py3-none-any.whl", hash = "sha256:bca523ef95586d3a8a5be2da766fe6f82754acba27689c984e28e77a12174593"},
+    {file = "PyJWT-1.6.1.tar.gz", hash = "sha256:dacba5786fe3bf1a0ae8673874e29f9ac497860955c501289c63b15d3daae63a"},
 ]
 pynamodb = [
     {file = "pynamodb-4.3.2-py2.py3-none-any.whl", hash = "sha256:cfaae8db840bae1ff7cdcf0a3ae39c39bbb4c877f7f324b0ecc6e5467cc24982"},

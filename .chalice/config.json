@@ -5,7 +5,8 @@
     "dev": {
       "autogen_policy": false,
       "environment_variables": {
-        "APP_TABLE_NAME": "helloworld-app-todos"
+        "APP_TABLE_NAME": "helloworld-app-todos",
+        "USERS_TABLE_NAME": "helloworld-app-users"
       },
       "api_gateway_stage": "api"
     }

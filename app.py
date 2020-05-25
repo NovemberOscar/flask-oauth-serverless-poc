@@ -3,11 +3,13 @@ import boto3
 
 from chalice import Chalice
 
+from chalicelib.auth import get_jwt_token
 from chalicelib.db import InMemoryTodoDB, DynamoDBTodo
 
 app = Chalice(app_name='helloworld')
 app.debug = True
 _DB = None
+_USER_DB = None
 
 
 def get_app_db():
@@ -17,6 +19,15 @@ def get_app_db():
             boto3.resource('dynamodb').Table(os.environ['APP_TABLE_NAME'])
         )
     return _DB
+
+
+def get_users_db():
+    global _USER_DB
+    if _USER_DB is None:
+        _USER_DB = boto3.resource('dynamodb').Table(
+            os.environ['USERS_TABLE_NAME']
+        )
+    return _USER_DB
 
 
 @app.route('/todos', methods=['GET'])
@@ -54,8 +65,13 @@ def update_todo(uid):
     )
 
 
-@app.route('/test-db')
+@app.route('/login', methods=['POST'])
 def test_db():
-    resource = boto3.resource('dynamodb')
-    table = resource.Table(os.environ['APP_TABLE_NAME'])
-    return table.name
+    body = app.current_request.json_body
+    record = get_users_db().get_item(
+        Key={'username': body['username']}
+    )['Item']
+    jwt_token = get_jwt_token(
+        body['username'], body['password'], record
+    )
+    return {'token': jwt_token.decode()}

@@ -10,6 +10,7 @@ docutils==0.15.2
 enum-compat==0.0.3
 jmespath==0.10.0
 pycparser==2.20
+pyjwt==1.6.1
 pynamodb==4.3.2
 python-dateutil==2.8.1
 s3transfer==0.3.3
