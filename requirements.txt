@@ -1,6 +1,7 @@
 attrs==19.3.0
 authlib==0.14.3
-botocore==1.16.14
+boto3==1.13.15
+botocore==1.16.15
 cffi==1.14.0
 chalice==1.14.1
 click==7.1.2
@@ -11,6 +12,7 @@ jmespath==0.10.0
 pycparser==2.20
 pynamodb==4.3.2
 python-dateutil==2.8.1
+s3transfer==0.3.3
 six==1.14.0
 urllib3==1.25.9; python_version != "3.4"
 wheel==0.34.2

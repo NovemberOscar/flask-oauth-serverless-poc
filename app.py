@@ -1,3 +1,6 @@
+import os
+import boto3
+
 from chalice import Chalice
 
 from db import InMemoryTodoDB
@@ -47,3 +50,10 @@ def update_todo(uid):
         state=body.get("state"),
         metadata=body.get("metadata"),
     )
+
+
+@app.route('/test-db')
+def test_db():
+    resource = boto3.resource('dynamodb')
+    table = resource.Table(os.environ['APP_TABLE_NAME'])
+    return table.name
