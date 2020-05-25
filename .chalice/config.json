@@ -3,6 +3,7 @@
   "app_name": "helloworld",
   "stages": {
     "dev": {
+      "autogen_policy": false,
       "environment_variables": {
         "APP_TABLE_NAME": "helloworld-app-todos"
       },
